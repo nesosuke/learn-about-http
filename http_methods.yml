@@ -1,0 +1,50 @@
+openapi: 3.0.0
+
+info:
+  title: learn-about-http
+  version: "1.0.0"
+  description: "Learn about HTTP. This is a sample API for learning purposes only."
+
+servers:
+  - url: http://localhost:5000/
+
+paths:
+  /:
+    get:
+      responses:
+        200:
+          description: "OK"
+
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                Authorization:
+                  type: string
+                  default: "Bearer token"
+                user_id:
+                  type: string
+                  default: "1"
+                profile:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                      default: "John Smith"
+                    age:
+                      type: integer
+                      default: 20
+                    sex:
+                      type: string
+                      default: male
+
+      responses:
+        200:
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                type: string
